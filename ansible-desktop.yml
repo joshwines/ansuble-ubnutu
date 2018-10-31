@@ -1,0 +1,32 @@
+---
+
+- name: Ubuntu desktop environment playbook
+  hosts: localhost
+  roles:
+     # Common roles
+     - { role: locales, become: true }
+     - { role: common, become: true }
+     - { role: zsh, become: true }
+     - { role: java-openjdk, become: true }
+     # Server roles
+     - { role: docker, become: true }
+     - { role: nodejs, become: true }
+     - { role: python, become: true }
+     # TODO: Dotfiles/ohmyzsh here
+     - { role: rbenv, become: true }
+     - { role: ssh, become: true }
+     # Desktop roles
+     - { role: chromium, become: true }
+     - { role: google-chrome, become: true }
+     - { role: filezilla, become: true }
+     - { role: firefox, become: true }
+     - { role: gimp, become: true }
+     - { role: keepassxc, become: true }
+     - { role: libreoffice, become: true }
+     - { role: remmina, become: true }
+     - { role: vagrant, become: true }
+     - { role: zoom, become: true }
+     # - { role: skype, become: true }
+     # - { role: wine, become: true }
+     # - { role: slack, become: true }
+     # - { role: dropbox, become: true }

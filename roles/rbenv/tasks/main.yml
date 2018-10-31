@@ -1,0 +1,34 @@
+---
+
+- name: Install Rbenv dependencies
+  apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time={{ aptcachetime }}
+  with_items:
+    - libreadline-dev
+    - libssl-dev
+    - zlib1g-dev
+
+- name: Installs Rbenv
+  git: repo=https://github.com/sstephenson/rbenv.git dest={{ ansible_env.HOME }}/.rbenv accept_hostkey=true
+  become: true
+  become_user: "{{ ansible_env.USER }}"
+
+- name: Creates plugin directory
+  file: path="{{ ansible_env.HOME }}/.rbenv/plugins/" mode=0755 state=directory
+  become: true
+  become_user: "{{ ansible_env.USER }}"
+
+- name: Installs Ruby-build
+  git: repo=git://github.com/sstephenson/ruby-build.git dest="{{ ansible_env.HOME }}/.rbenv/plugins/ruby-build" accept_hostkey=true
+  become: true
+  become_user: "{{ ansible_env.USER }}"
+
+- name: Install Ruby
+  shell: "{{ ansible_env.HOME }}/.rbenv/bin/rbenv install {{ rbenv.ruby_version }}"
+  failed_when: false
+  become: true
+  become_user: "{{ ansible_env.USER }}"
+
+- name: Install Ruby
+  shell: "{{ ansible_env.HOME }}/.rbenv/bin/rbenv global {{ rbenv.ruby_version }}"
+  become: true
+  become_user: "{{ ansible_env.USER }}"

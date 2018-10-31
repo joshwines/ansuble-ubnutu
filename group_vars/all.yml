@@ -1,0 +1,18 @@
+---
+
+# http://docs.ansible.com/ansible/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable
+aptcachetime: 3600
+locale: "en_AU.UTF-8"
+timezone: "Australia/Melbourne"
+
+chromium:
+  set_default: false
+  policy: false
+  extensions: false
+ssh:
+  start: true
+  service_enabled: true
+  password_auth: true
+  root_login: false
+rbenv:
+  ruby_version: "2.5.1"

@@ -1,0 +1,4 @@
+---
+
+google_chrome:
+  apt_file: /etc/apt/sources.list.d/google-chrome.list

@@ -1,0 +1,6 @@
+---
+
+- name: Install KeepassXC
+  apt: pkg="{{ item }}" state=present
+  with_items:
+    - keepassxc

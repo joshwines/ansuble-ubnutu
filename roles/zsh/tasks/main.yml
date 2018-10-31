@@ -1,0 +1,10 @@
+---
+
+- name: Install ZSH with Aptitude
+  apt: pkg=zsh state=latest update_cache=yes cache_valid_time={{ aptcachetime }}
+
+- name: Make ZSH default shell for user root
+  user: name=root shell=/bin/zsh
+
+- name: "Make ZSH default shell for user {{ ansible_env.USER }}"
+  user: name={{ ansible_env.USER }} shell=/bin/zsh
