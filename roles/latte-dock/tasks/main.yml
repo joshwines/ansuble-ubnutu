@@ -1,0 +1,47 @@
+---
+
+- name: Add Kubuntu Backports Repo
+  apt_repository:
+    repo: ppa:kubuntu-ppa/backports
+    state: present
+
+- name: Update all packages to the latest version
+  apt:
+    upgrade: dist
+    update_cache: yes
+
+- name: Add Latte Dock Repo
+  apt_repository:
+    repo: ppa:rikmills/latte-dock
+    state: present
+
+- name: Update repositories cache and install "latte-dock"
+  apt:
+    name: latte-dock
+    state: latest
+    update_cache: yes
+
+    #- name: Install Latte Dock Dependencies
+    #  apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time={{ aptcachetime }}
+    #  with_items:
+    #    - cmake
+    #    - extra-cmake-modules
+    #    - qtdeclarative5-dev
+    #    - libqt5x11extras5-dev
+    #    - libkf5iconthemes-dev
+    #    - libkf5plasma-dev
+    #    - libkf5windowsystem-dev
+    #    - libkf5declarative-dev
+    #    - libkf5xmlgui-dev
+    #    - libkf5activities-dev
+    #    - build-essential
+    #    - libxcb-util-dev
+    #    - libkf5wayland-dev
+    #    - git
+    #    - gettext
+    #    - libkf5archive-dev
+    #    - libkf5notifications-dev
+    #    - libxcb-util0-dev
+    #    - libsm-dev
+    #    - libkf5crash-dev
+    #    - libkf5newstuff-dev

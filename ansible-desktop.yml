@@ -30,3 +30,4 @@
      # - { role: wine, become: true }
      # - { role: slack, become: true }
      # - { role: dropbox, become: true }
+     - { role: latte-dock, become: true }
