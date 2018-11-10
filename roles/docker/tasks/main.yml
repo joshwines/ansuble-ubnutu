@@ -12,3 +12,9 @@
     - software-properties-common
     - docker.io
     - docker-compose
+
+- name: Adding user '{{ ansible_env.USER }}' to group docker
+  user:
+    name: '{{ ansible_env.USER }}'
+    groups: docker
+    append: yes
