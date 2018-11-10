@@ -47,6 +47,7 @@
     - nmap
     - openssl
     - p7zip
+    - postgresql-client
     - pv
     - pwgen
     - ranger
